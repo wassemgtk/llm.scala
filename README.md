@@ -16,8 +16,7 @@ Inspired by the [llm.c](https://github.com/karpathy/llm.c) project, this Scala v
 - Adam optimizer for parameter updates
 - Data loading and batching utilities
 - Tokenization and vocabulary handling
-- Model checkpointing and loading
-- Comprehensive test suite for all modules
+- Test suite for all modules
 
 ## Project Structure
 
