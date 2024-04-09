@@ -51,9 +51,16 @@ scalacOptions ++= Seq(
   "-Xfatal-warnings"
 )
 
-testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oDF")
+Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oDF")
+
+import sbtassembly.AssemblyPlugin.autoImport._
+import sbtassembly.PathList
+import sbtassembly.MergeStrategy
 
 assembly / assemblyMergeStrategy := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case x => MergeStrategy.first
+  case PathList("META-INF", _*) => MergeStrategy.discard
+  case _ => MergeStrategy.first
 }
+
+
+Compile / run / mainClass := Some("llm.Main")
